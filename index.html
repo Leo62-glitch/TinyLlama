@@ -2,10 +2,10 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Mini Chat avec Phi-2 🚀</title>
+    <title>Mini Chat avec DistilGPT-2 🚀</title>
 </head>
 <body>
-    <h1>Test Local du modèle Phi-2 🧠</h1>
+    <h1>Test Local du modèle DistilGPT-2 🧠</h1>
 
     <textarea id="prompt" rows="5" cols="60" placeholder="Écris ton prompt ici..."></textarea><br><br>
     <button onclick="handleClick()">Envoyer au LLM</button>
@@ -16,12 +16,11 @@
     <script type="module">
         import { pipeline } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.5.0';
 
-        // Chargement du modèle Phi-2
         let pipe = null;
 
         async function init() {
             document.getElementById('response').innerText = "Chargement du modèle, patiente un peu...";
-            pipe = await pipeline('text-generation', 'Xenova/Phi-2');
+            pipe = await pipeline('text-generation', 'Xenova/distilgpt2');
             document.getElementById('response').innerText = "Modèle prêt ! Envoie un prompt 🚀";
         }
 
@@ -46,7 +45,7 @@
 
         // Initialisation
         init();
-        window.handleClick = handleClick; // Nécessaire pour que le bouton puisse appeler la fonction
+        window.handleClick = handleClick; // Nécessaire pour que le bouton fonctionne
     </script>
 </body>
 </html>
