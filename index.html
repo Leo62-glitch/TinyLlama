@@ -2,10 +2,11 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>TinyLlama en Local</title>
+    <title>Mini Chat avec Phi-2 🚀</title>
 </head>
 <body>
-    <h1>Test de TinyLlama 🚀</h1>
+    <h1>Test Local du modèle Phi-2 🧠</h1>
+
     <textarea id="prompt" rows="5" cols="60" placeholder="Écris ton prompt ici..."></textarea><br><br>
     <button onclick="handleClick()">Envoyer au LLM</button>
 
@@ -15,21 +16,26 @@
     <script type="module">
         import { pipeline } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.5.0';
 
-        // Chargement du modèle TinyLlama
+        // Chargement du modèle Phi-2
         let pipe = null;
 
         async function init() {
             document.getElementById('response').innerText = "Chargement du modèle, patiente un peu...";
-            pipe = await pipeline('text-generation', 'Xenova/TinyLlama-1.1B-Chat-v1.0');
+            pipe = await pipeline('text-generation', 'Xenova/Phi-2');
             document.getElementById('response').innerText = "Modèle prêt ! Envoie un prompt 🚀";
         }
 
         async function handleClick() {
-            const prompt = document.getElementById('prompt').value;
+            const prompt = document.getElementById('prompt').value.trim();
             if (!pipe) {
                 alert("Le modèle est encore en train de charger !");
                 return;
             }
+            if (prompt.length === 0) {
+                alert("Écris quelque chose !");
+                return;
+            }
+            document.getElementById('response').innerText = "Génération en cours...";
             const out = await pipe(prompt, {
                 max_new_tokens: 200,
                 temperature: 0.7,
@@ -38,8 +44,9 @@
             document.getElementById('response').innerText = out[0].generated_text;
         }
 
-        // Démarrage
+        // Initialisation
         init();
+        window.handleClick = handleClick; // Nécessaire pour que le bouton puisse appeler la fonction
     </script>
 </body>
 </html>
