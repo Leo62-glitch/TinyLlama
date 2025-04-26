@@ -3,15 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <title>Mini Chat avec DistilGPT-2 🚀</title>
+    <style>
+        body {
+            background-color: #f4f6f8;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .chat-container {
+            background-color: white;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            resize: none;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            margin-top: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #555;
+        }
+
+        pre {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 10px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            min-height: 100px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Test Local du modèle DistilGPT-2 🧠</h1>
+    <h1>Mini Chat avec DistilGPT-2 🚀</h1>
 
-    <textarea id="prompt" rows="5" cols="60" placeholder="Écris ton prompt ici..."></textarea><br><br>
-    <button onclick="handleClick()">Envoyer au LLM</button>
+    <div class="chat-container">
+        <textarea id="prompt" rows="5" placeholder="Écris ton prompt ici..."></textarea><br>
+        <button onclick="handleClick()">Envoyer au LLM</button>
 
-    <h2>Réponse :</h2>
-    <pre id="response"></pre>
+        <h2>Réponse :</h2>
+        <pre id="response"></pre>
+    </div>
 
     <script type="module">
         import { pipeline } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.5.0';
@@ -43,9 +106,9 @@
             document.getElementById('response').innerText = out[0].generated_text;
         }
 
-        // Initialisation
         init();
-        window.handleClick = handleClick; // Nécessaire pour que le bouton fonctionne
+        window.handleClick = handleClick;
     </script>
 </body>
 </html>
+
