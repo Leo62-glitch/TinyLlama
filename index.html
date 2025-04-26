@@ -5,70 +5,84 @@
     <title>Mini Chat avec DistilGPT-2 🚀</title>
     <style>
         body {
-            background-color: #f4f6f8;
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 20px;
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #74ebd5 0%, #acb6e5 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .chat-container {
-            background-color: white;
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background-color: rgba(255, 255, 255, 0.9);
+            width: 90%;
+            max-width: 700px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 28px;
         }
 
         textarea {
             width: 100%;
-            padding: 10px;
+            padding: 15px;
             font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
+            border: 2px solid #ccc;
+            border-radius: 12px;
             resize: none;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            background: #f9f9f9;
         }
 
         button {
-            background-color: #4CAF50;
+            background: linear-gradient(135deg, #6EE7B7 0%, #3B82F6 100%);
             color: white;
             border: none;
-            padding: 12px 20px;
-            margin-top: 10px;
+            padding: 12px 25px;
             font-size: 16px;
+            font-weight: bold;
+            border-radius: 30px;
             cursor: pointer;
-            border-radius: 8px;
-            transition: background-color 0.3s;
+            transition: background 0.3s, transform 0.2s;
         }
 
         button:hover {
-            background-color: #45a049;
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #3B82F6 0%, #6EE7B7 100%);
         }
 
         h2 {
-            margin-top: 20px;
+            margin-top: 30px;
+            margin-bottom: 10px;
             color: #555;
         }
 
         pre {
             background-color: #f0f0f0;
-            padding: 15px;
-            border-radius: 10px;
+            padding: 20px;
+            border-radius: 15px;
+            min-height: 120px;
+            font-size: 16px;
+            text-align: left;
             white-space: pre-wrap;
             word-wrap: break-word;
-            min-height: 100px;
+            color: #333;
         }
     </style>
 </head>
 <body>
-    <h1>Mini Chat avec DistilGPT-2 🚀</h1>
-
     <div class="chat-container">
+        <h1>Mini Chat avec DistilGPT-2 🚀</h1>
+
         <textarea id="prompt" rows="5" placeholder="Écris ton prompt ici..."></textarea><br>
         <button onclick="handleClick()">Envoyer au LLM</button>
 
@@ -111,4 +125,3 @@
     </script>
 </body>
 </html>
-
